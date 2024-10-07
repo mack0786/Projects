@@ -1,0 +1,22 @@
+...
+hosts: webservers
+become: true
+tasks:
+  - name: Install Package
+    apt:
+      name: apache2
+      state: present
+  - name: start apache server
+    service:
+      name: apache2
+      state: started
+  - name: Add firewall Rule
+    ufw:
+      rule: allow
+      port: 80
+      proto: tcp
+  - name: Deploying static website
+    copy:
+      src: index.html
+      des: var/www/html
+...

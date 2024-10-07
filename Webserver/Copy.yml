@@ -18,5 +18,5 @@ tasks:
   - name: Deploying static website
     copy:
       src: index.html
-      des: var/www/html
+      des: var/www/html/
 ...
